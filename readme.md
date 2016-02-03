@@ -2,6 +2,10 @@
 
 A list builder for X Wing written in Django.
 
-# Development Setup
+## Development Setup
 
 Uses sqlite3... for now.
+
+## Data Model
+
+![Eventual Starting Datamodel](docs/model.png)
