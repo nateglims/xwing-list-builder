@@ -6,20 +6,19 @@ from .models import List, Ship
 
 def list(request, list_id):
     l = get_object_or_404(List, pk=list_id)
-    return HttpResponse("You're looking for list %s with points %s and ships %s" %
-                         (l.name, l.max_points, [s.name for s in l.ships.all()],) )
+    return render(request, 'xwing/list.html', {'list': l})
 
 
 def ship(request, ship_id):
     s = get_object_or_404(Ship, pk=ship_id)
-    return HttpResponse("You're looking for ship {}".format(s.name))
+    return render(request, 'xwing/ship.html', {'ship': s})
 
 
 def ships(request):
-    ships = Ship.objects.all()
-    return HttpResponse("This is all the ships...\n%s" % '\n'.join([s.name for s in ships]))
+    s = Ship.objects.all()
+    return render(request, 'xwing/ships.html', {'ships': s})
 
 
 def lists(request):
-    lists = List.objects.all()
-    return HttpResponse("This is all the lists!\n%s" % '\n'.join([l.name for l in lists]))
+    l = List.objects.all()
+    return render(request, 'xwing/lists.html', {'lists': l})
