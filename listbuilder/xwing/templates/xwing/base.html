@@ -32,8 +32,8 @@
         <div id="navbar" class="collapse navbar-collapse">
           {% block navbar %}
           <ul class="nav navbar-nav">
-            <li><a href="/xwing/lists">Lists</a></li>
-            <li><a href="/xwing/ships">Ships</a></li>
+            <li><a href="{% url 'list-index' %}">Lists</a></li>
+            <li><a href="{% url 'ship-index' %}">Ships</a></li>
           </ul>
           {% endblock %}
         </div><!--/.nav-collapse -->
