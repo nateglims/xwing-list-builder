@@ -1,11 +1,11 @@
 from django.conf.urls import url
 
-from . import views
+from .views import ListDetailView, ListListView, ShipDetailView, ShipListView
 
 urlpatterns = [
-    url(r'^$', views.lists, name='List Index'),
-    url(r'^lists/', views.lists, name='List Index'),
-    url(r'^list/(?P<list_id>[0-9]+)/$', views.list, name=''),
-    url(r'^ships/', views.ships, name='Ship Index'),
-    url(r'^ship/(?P<ship_id>[0-9]+)/$', views.ship, name=''),
+    url(r'^$', ListListView.as_view(), name='List Index'),
+    url(r'^lists/', ListListView.as_view(), name='List Index'),
+    url(r'^list/(?P<list_id>[0-9]+)/$', ListDetailView.as_view(), name=''),
+    url(r'^ships/', ShipListView.as_view(), name='Ship Index'),
+    url(r'^ship/(?P<ship_id>[0-9]+)/$', ShipDetailView.as_view(), name=''),
 ]

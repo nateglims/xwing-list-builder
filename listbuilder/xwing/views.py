@@ -1,24 +1,32 @@
 from django.shortcuts import render, get_object_or_404
-from django.http import HttpResponse
+from django.views.generic import DetailView, ListView
 
 from .models import List, Ship
 
 
-def list(request, list_id):
-    l = get_object_or_404(List, pk=list_id)
-    return render(request, 'xwing/list.html', {'list': l})
+class ListDetailView(DetailView):
+    template_name = 'xwing/list.html'
+    model = List
+
+    def get(self, request, *args, **kwargs):
+        l = get_object_or_404(List, pk=kwargs['list_id'])
+        return render(request, self.template_name, {'list': l})
 
 
-def ship(request, ship_id):
-    s = get_object_or_404(Ship, pk=ship_id)
-    return render(request, 'xwing/ship.html', {'ship': s})
+class ShipDetailView(DetailView):
+    template_name = 'xwing/ship.html'
+    model = Ship
+
+    def get(self, request, *args, **kwargs):
+        s = get_object_or_404(Ship, pk=kwargs['ship_id'])
+        return render(request, self.template_name, {'ship': s})
 
 
-def ships(request):
-    s = Ship.objects.all()
-    return render(request, 'xwing/ships.html', {'ships': s})
+class ShipListView(ListView):
+    template_name = 'xwing/ships.html'
+    model = Ship
 
 
-def lists(request):
-    l = List.objects.all()
-    return render(request, 'xwing/lists.html', {'lists': l})
+class ListListView(ListView):
+    template_name = 'xwing/lists.html'
+    model = List
