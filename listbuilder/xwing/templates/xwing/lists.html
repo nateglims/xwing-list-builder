@@ -9,7 +9,7 @@ All Lists
 {% block content %}
 <div class="col-lg-12">
     <ul class="list-group">
-        {% for list in lists %}
+        {% for list in object_list %}
         <li class="text-left list-group-item"><a href="{% url 'list' list.id %}">{{ list }}</a></li>
         {% endfor %}
     </ul>
