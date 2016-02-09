@@ -10,7 +10,7 @@ All Ships
 <div class="col-lg-6">
     <ul class="list-group">
         {% for ship in object_list %}
-            <li class="list-group-item text-left"><a href="/xwing/ship/{{ ship.id }}">{{ ship }}</a></li>
+            <li class="list-group-item text-left"><a href="{% url 'ship' ship.id %}">{{ ship }}</a></li>
         {% endfor %}
     </ul>
 </div>

@@ -13,7 +13,7 @@ List {{ list }}
 <div class="col-lg-12">
     <ul class="list-group">
         {% for ship in list.ships.all %}
-        <li class="list-group-item text-left"><a href="/xwing/ship/{{ship.id}}">{{ship}}</a></li>
+        <li class="list-group-item text-left"><a href="{% url 'ship' ship.id %}">{{ship}}</a></li>
         {% endfor %}
     </ul>
 </div>
