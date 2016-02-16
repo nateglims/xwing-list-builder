@@ -21,3 +21,4 @@ Uses sqlite3... for now.
 - Extend to starting data model
 - Add user support
 - Make RESTful with front end (SPA maybe?)
+- Unit test coverage
