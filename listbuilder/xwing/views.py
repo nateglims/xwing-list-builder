@@ -8,18 +8,10 @@ class ListDetailView(DetailView):
     template_name = 'xwing/list.html'
     model = List
 
-    def get(self, request, *args, **kwargs):
-        l = get_object_or_404(List, pk=kwargs['list_id'])
-        return render(request, self.template_name, {'list': l})
-
 
 class ShipDetailView(DetailView):
     template_name = 'xwing/ship.html'
     model = Ship
-
-    def get(self, request, *args, **kwargs):
-        s = get_object_or_404(Ship, pk=kwargs['ship_id'])
-        return render(request, self.template_name, {'ship': s})
 
 
 class ShipListView(ListView):
