@@ -1,6 +1,6 @@
-from django.shortcuts import render, get_object_or_404
-from django.views.generic import DetailView, ListView
+from django.views.generic import DetailView, ListView, CreateView
 
+from .forms import ListForm
 from .models import List, Ship
 
 
@@ -22,3 +22,9 @@ class ShipListView(ListView):
 class ListListView(ListView):
     template_name = 'xwing/lists.html'
     model = List
+
+
+class ListCreateView(CreateView):
+    template_name = 'xwing/list_create.html'
+    model = List
+    form_class = ListForm
